@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.+'
+//        instrumentTestCompile 'com.google.guava:guava:11.0.2'
+    }
+}
+apply plugin: 'android-library'
+
+group 'org.wordpress'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Local jar dependencies
+    compile files('libs/rhino-1.7RC2.jar')
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+        testPackageName "org.wordpress.prettydate.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+}
